@@ -76,7 +76,7 @@ input {
 }
 
  .tip-container > button {
-    width: 6.55em;
+    min-width: 6.65em;
     font-weight: 500;
     font-size: 1.6em;
     height: 40px;
@@ -93,7 +93,7 @@ button:hover {
 }
 
 .tip-container > input {
-    width: 5.8em;
+    max-width: 5.9em;
     height: 40px;
     font-size: 1.8em;
     padding-right: 8.5px;
@@ -174,7 +174,7 @@ input::-webkit-inner-spin-button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 100%;
+    min-width: 6.65em;
     padding: 30px 20px 10px;    
     background-color: var(--very-dark-cyan);
     border-radius: 10px;
