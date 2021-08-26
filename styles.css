@@ -76,7 +76,7 @@ input {
 }
 
  .tip-container > button {
-    width: 7em;
+    width: 6.55em;
     font-weight: 500;
     font-size: 1.6em;
     height: 40px;
@@ -93,10 +93,10 @@ button:hover {
 }
 
 .tip-container > input {
-    width: 150px;
+    width: 5.8em;
     height: 40px;
     font-size: 1.8em;
-    padding-right: 15px;
+    padding-right: 8.5px;
     border-radius: 7.5px;
     border: none;
     outline: none;
