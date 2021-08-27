@@ -14,24 +14,29 @@ tipContainer.addEventListener("click", handleEvent, false);
 function handleEvent(event) {
     
     if (event.target !== event.currentTarget) {
-        let clickedEvent = Math.abs(event.target.value);
+        let clickedEvent = event.target.value;
+        
         
         if (billAmount.value === '' && numberPeople.value === '') {
             addTwoError();
-        } else if (billAmount.value === '') {
+        } else if (billAmount.value === '' && billAmount.value !== 0) {
             addBillError();
-        } else if (numberPeople.value === '') {
-            addPeopleError();
+        } else if (numberPeople.value === '' && billAmount.value !== 0) {
+            addPeopleError(); 
         } else if (clickedEvent >= 1) {
-            let customEvent = Math.abs(clickedEvent) / 100;
-            calculateTip(customEvent);
-           
-        } else calculateTip(clickedEvent); 
-        
-    }
-
+            let customEvent = clickedEvent / 100;            
+            calculateTip(customEvent);           
+        } else if (clickedEvent < 1) {
+            customTip.value = '';
+            Math.abs(clickedEvent);                                   
+            calculateTip(clickedEvent); 
+        }
+            
+    }    
     event.stopPropagation();
 }
+
+
 
 function calculateTip (arg1) {
     console.log (billAmount.value);
@@ -39,33 +44,45 @@ function calculateTip (arg1) {
     console.log(numberPeople.value);
 
     let tipAmount = billAmount.value * arg1 / numberPeople.value; 
-    tipResult.textContent = tipAmount.toFixed(2);
+    tipResult.textContent = Math.abs(tipAmount).toFixed(2);
 
     let personTotal = billAmount.value / numberPeople.value + tipAmount;
-    tipTotal.textContent = personTotal.toFixed(2);
+    tipTotal.textContent = Math.abs(personTotal).toFixed(2);
 
+    removeError();
 
+}
+
+function removeError() {
+    errorSpan.classList.add("hidden");
+    errorPeople.classList.add("hidden");
+    billAmount.classList.remove("error");
+    numberPeople.classList.remove("error");
 }
 
 function addBillError() {
         errorSpan.classList.remove("hidden");
         errorSpan.classList.add("error-msg");
+        billAmount.classList.add("error");
+        customTip.value = ''; 
 }
 
 function addPeopleError() {
         errorPeople.classList.remove("hidden");
         errorPeople.classList.add("error-msg");
+        numberPeople.classList.add("error");
+        customTip.value = ''; 
 }
 
 function addTwoError() {
     errorSpan.classList.remove("hidden");
     errorSpan.classList.add("error-msg");
+    billAmount.classList.add("error");
     errorPeople.classList.remove("hidden");
     errorPeople.classList.add("error-msg");
+    numberPeople.classList.add("error");
+    customTip.value = ''; 
 }
-
-
-
 
 
 function formReset() {
@@ -73,8 +90,12 @@ function formReset() {
     billAmount.value = '';
     customTip.value = '';
     numberPeople.value = '';
+    tipResult.textContent = '$0.00';
+    tipTotal.textContent = '$0.00';
     errorSpan.classList.add("hidden");
     errorPeople.classList.add("hidden");
+    numberPeople.classList.remove("error");
+    billAmount.classList.remove("error");
 }
 
 
