@@ -7,7 +7,28 @@ const tipContainer = document.querySelector ('.tip-container');
 const tipResult = document.querySelector ('#tip-result');
 const tipTotal = document.querySelector ('#tip-total');
 const errorSpan = document.querySelector("label ~ span");
-const errorPeople = document.querySelector("span:nth-child(8)")
+const errorPeople = document.querySelector("label.label-people ~ span");
+
+
+billAmount.addEventListener("change", checkInput, false);
+
+function checkInput() {
+    if (billAmount.value > 0) {
+        errorSpan.classList.add("hidden");
+        billAmount.classList.remove("error");
+    }
+}
+
+numberPeople.addEventListener("change", checkPeopleInput, false);
+
+function checkPeopleInput() {
+    if (numberPeople.value > 0) {
+        errorPeople.classList.add("hidden");
+        numberPeople.classList.remove("error");
+    }
+}
+
+
 
 tipContainer.addEventListener("click", handleEvent, false);
 
@@ -15,8 +36,7 @@ function handleEvent(event) {
     
     if (event.target !== event.currentTarget) {
         let clickedEvent = event.target.value;
-        
-        
+                
         if (billAmount.value === '' && numberPeople.value === '') {
             addTwoError();
         } else if (billAmount.value === '' && billAmount.value !== 0) {
@@ -44,10 +64,10 @@ function calculateTip (arg1) {
     console.log(numberPeople.value);
 
     let tipAmount = billAmount.value * arg1 / numberPeople.value; 
-    tipResult.textContent = Math.abs(tipAmount).toFixed(2);
+    tipResult.textContent = "$" + Math.abs(tipAmount).toFixed(2);
 
     let personTotal = billAmount.value / numberPeople.value + tipAmount;
-    tipTotal.textContent = Math.abs(personTotal).toFixed(2);
+    tipTotal.textContent = "$" + Math.abs(personTotal).toFixed(2);
 
     removeError();
 

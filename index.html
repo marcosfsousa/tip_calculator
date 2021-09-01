@@ -13,18 +13,21 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
+    .attribution { font-size: 11px; text-align: center; margin-top: 9em;}
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
 <body>
 <div class="img-logo"><img src="images/logo.svg" alt="splitter logo"></div>
   <div class="wrapper">
-      <form action="" class="form-box" id="form-box"></form>
-        <label class="label-bill" for="label-bill">Bill</label>
-        <span class="hidden">Can't be zero</span>
+    <form action="" class="form-box" id="form-box"></form>
+      <div class="left-box">
+        <div class="label-bill-box">
+          <label class="label-bill" for="label-bill">Bill</label>
+          <span class="hidden">Can't be zero</span>
+        </div>
         <input type="number" min="0" placeholder="0" pattern="^(0*[1-9][0-9]*(\.[0-9]*)?|0*\.[0-9]*[1-9][0-9]*)$" name="label-bill" class="input-bill" id="input-bill">    
-            <label class="label-tip">Select Tip %</label>
+          <label class="label-tip">Select Tip %</label>
             <div class="tip-container">
               <button class="tip-button tip-5" value='0.05' >5%</button>
               <button class="tip-button tip-10" value="0.10" >10%</button>
@@ -33,37 +36,41 @@
               <button class="tip-button tip-50" value="0.50" >50%</button>
               <input type="number" min="0" pattern="^(0*[1-9][0-9]*(\.[0-9]*)?|0*\.[0-9]*[1-9][0-9]*)$" id="input-custom" class="input-custom" placeholder="Custom"></input>
             </div>
-        <label for="input-people" class="label-people">Number of People</label>        
-        <span class="hidden">Can't be zero</span>
+        <div class="label-people-box">
+          <label for="input-people" class="label-people">Number of People</label>
+          <span class="hidden">Can't be zero</span>
+        </div>
         <input type="number" min="1" placeholder="0" pattern="^(0*[1-9][0-9]*(\.[0-9]*)?|0*\.[0-9]*[1-9][0-9]*)$" max="99" maxlength="99" id="input-people" class="input-people" name="input-people">      
-            <div class="sum-container">
-        <div class="tip-box">
-          <div class="tip-amount">
-            <p class="para-tip">Tip Amount</p>
-            <span>/ person</span>
+      </div>
+      <div class="right-box">
+        <div class="sum-container">
+          <div class="tip-box">
+            <div class="tip-amount">
+              <p class="para-tip">Tip Amount</p>
+              <span>/ person</span>
+            </div>
+            <div class="amount-result">
+              <span id="tip-result">$0.00</span>
+            </div>
           </div>
-          <div class="amount-result">
-            <span id="tip-result">$0.00</span>
+          <div class="total-box">
+            <div class="sum-total">
+              <p class="para-total">Total</p>
+              <span>/ person</span>
+            </div>
+            <div class="total-result">
+              <span id="tip-total">$0.00</span>
+            </div>
           </div>
-        </div>
-        <div class="total-box">
-          <div class="sum-total">
-            <p class="para-total">Total</p>
-            <span>/ person</span>
-          </div>
-          <div class="total-result">
-            <span id="tip-total">$0.00</span>
-          </div>
-        </div>
-        <button id="button-reset" class="button-reset" onClick="formReset()">Reset</button>
-      </form>
+          <button id="button-reset" class="button-reset" onClick="formReset()">Reset</button>
+     </form>
     </div>
-    
-</div>
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Marcos Sousa</a>.
+   </div>
   </div>
+<div class="attribution">
+  Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+  Coded by <a href="#">Marcos Sousa</a>.
+</div>
 <script src="script.js" defer></script>
 </body>
 </html>
