@@ -27,12 +27,12 @@ Users should be able to:
 
 ### Screenshot
 
-![Mobile](\images\tip_calculator_mobile.png)
-![Desktop](\images\tip_calculator_desktop.png)
+![Mobile](/images/tip_calculator_mobile.png)
+![Desktop](/images/tip_calculator_desktop.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/tip-calculator-with-vanilla-js-GdpUC3rL_]
 - Live Site URL: [https://marcosfsousa.github.io/tip_calculator/]
 
 ## My process
@@ -71,5 +71,5 @@ Javascript continus to be the most challenging of the all the aspects of Front E
 
 - Web CV - [Marcos Sousa](https://marcosfsousa.github.io/WebCV/)
 - Frontend Mentor - [@marcosfsousa](https://www.frontendmentor.io/profile/marcosfsousa)
-- LinkedIn - (https://linkedin.com/themarcossousa)
+- LinkedIn - [themarcossousa](https://www.linkedin.com/in/themarcossousa/)
 
