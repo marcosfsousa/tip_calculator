@@ -331,6 +331,7 @@ input::-webkit-inner-spin-button {
     .input-bill, .input-people {
         width: 14.5em;
         margin-bottom: 35px;
+        height: 45px;
     }
 
     input:hover {
