@@ -15,6 +15,10 @@
     box-sizing: border-box;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    display: none;
+}
+
 body {
     font-family: var(--ff-family);
     font-weight: 700;
@@ -334,7 +338,7 @@ input::-webkit-inner-spin-button {
     }
 
     .tip-container {
-        width: 28em;
+        width: 25em;
         margin-bottom: 30px;
     }
 
