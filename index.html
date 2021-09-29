@@ -18,10 +18,11 @@
   </style>
 </head>
 <body>
-<div class="img-logo"><img src="images/logo.svg" alt="splitter logo"></div>
-  <div class="wrapper">
+<h1>App Logo</h1>
+<header class="img-logo"><img src="images/logo.svg" alt="splitter logo"></header>
+  <main class="wrapper">
     <form action="#" class="form-box" id="form-box"></form>
-      <div class="left-box">
+      <section class="left-box">
         <div class="label-bill-box">
           <label class="label-bill">Bill</label>
           <span class="hidden">Can't be zero</span>
@@ -41,8 +42,8 @@
           <span class="hidden">Can't be zero</span>
         </div>
         <input type="number" min="1" placeholder="0" max="99" id="input-people" class="input-people" name="input-people">      
-      </div>
-      <div class="right-box">
+      </section>
+      <section class="right-box">
         <div class="sum-container">
           <div class="tip-box">
             <div class="tip-amount">
@@ -63,14 +64,14 @@
             </div>
           </div>
           <button id="button-reset" class="button-reset" onClick="formReset()">Reset</button>
-     </form>
-    </div>
-   </div>
-  </div>
-<div class="attribution">
+        </div>
+      </section>
+    </form>
+  </main>
+<footer class="attribution">
   Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
   Coded by <a href="#">Marcos Sousa</a>.
-</div>
+</footer>
 <script src="script.js" defer></script>
 </body>
 </html>
