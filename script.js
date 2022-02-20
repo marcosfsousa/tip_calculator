@@ -5,6 +5,7 @@ const formBox = document.getElementById("form-box");
 const tipContainer = document.querySelector(".tip-container");
 const tipResult = document.querySelector("#tip-result");
 const tipTotal = document.querySelector("#tip-total");
+const totalWithTip = document.querySelector("#total-plus-tip");
 const errorSpan = document.querySelector("label ~ span");
 const errorPeople = document.querySelector("label.label-people ~ span");
 
@@ -26,12 +27,6 @@ function checkPeopleInput() {
   }
 }
 
-customTip.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") {
-    calculateTip;
-  }
-});
-
 tipContainer.addEventListener("click", handleEvent, false);
 
 function handleEvent(event) {
@@ -44,17 +39,27 @@ function handleEvent(event) {
       addBillError();
     } else if (numberPeople.value === "" && billAmount.value !== 0) {
       addPeopleError();
-    } else if (clickedEvent >= 1) {
-      let customEvent = clickedEvent / 100;
-      calculateTip(customEvent);
-    } else if (clickedEvent < 1) {
-      customTip.value = "";
-      Math.abs(clickedEvent);
-      calculateTip(clickedEvent);
-    }
+    } else calculateTip(clickedEvent);
+    // } else if (clickedEvent >= 1) {
+    //   let customEvent = clickedEvent / 100;
+    //   calculateTip(customEvent);
+    // } else if (clickedEvent < 1) {
+    //   customTip.value = "";
+    //   Math.abs(clickedEvent);
+    //   calculateTip(clickedEvent);
+    // }
   }
   event.stopPropagation();
 }
+
+customTip.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    if (customTip.value >= 1) {
+      let customEvent = customTip.value / 100;
+      calculateTip(customEvent);
+    } else calculateTip(customTip.value);
+  }
+});
 
 function calculateTip(arg1) {
   console.log(billAmount.value);
@@ -66,6 +71,9 @@ function calculateTip(arg1) {
 
   let personTotal = billAmount.value / numberPeople.value + tipAmount;
   tipTotal.textContent = "$" + Math.abs(personTotal).toFixed(2);
+
+  let totalTip = billAmount.value;
+  totalWithTip.textContent = "$" + Math.abs(totalTip).toFixed(2);
 
   removeError();
 }
@@ -108,6 +116,7 @@ function formReset() {
   numberPeople.value = "";
   tipResult.textContent = "$0.00";
   tipTotal.textContent = "$0.00";
+  totalWithTip.textContent = "$0.00";
   errorSpan.classList.add("hidden");
   errorPeople.classList.add("hidden");
   numberPeople.classList.remove("error");
