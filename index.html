@@ -18,12 +18,21 @@
   </style>
 </head>
 <body>
-<h1 role="heading">App Logo</h1>
-<header class="img-logo"><img src="images/logo.svg" alt="splitter logo"></header>
+<h1 class="sr-only" role="heading">App Logo</h1>
+<header class="img-logo"><img src="images/logo.svg" alt="splitter logo">
+  <aside class="use-instructions">
+  <h2>How it works</h2>
+  <ol class="use-instructions-list">
+    <li>Type in the bill amount</li>
+    <li>Choose the number of people to split the bill</li>
+    <li>Select the tip you would like to add to the bill</li>
+    <li>You're done! Below you can see what each person has to pay.<br> Happy Splittin'</li>
+  </ol>
+</aside>
+</header>
   <main class="wrapper">
     <form action="#" class="form-box" id="form-box"></form>
-      <section class="left-box">
-        <h2>User input</h2>
+      <section class="left-box">        
         <div class="label-bill-box">
           <label class="label-bill">Bill</label>
           <span class="hidden">Can't be zero</span>
@@ -42,11 +51,11 @@
               <button class="tip-button tip-25" value="0.25" >25%</button>
               <button class="tip-button tip-50" value="0.50" >50%</button>
             </div>
-            <input type="number" min="0" id="input-custom" placeholder="Custom Tip"></input>
+            <input type="number" min="1" id="input-custom" class="input-border" placeholder="Custom Tip"></input>
+            <span class="hidden error-custom">Can't be zero</span>
       </section>
       <section class="right-box">
-        <h2>Sum total</h2>
-          
+        <h2 class="title-hidden">Sum total</h2>          
           <div class="sum-container">
             <div class="tip-box">
               <div class="tip-amount">

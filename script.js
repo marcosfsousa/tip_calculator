@@ -8,6 +8,7 @@ const tipTotal = document.querySelector("#tip-total");
 const totalWithTip = document.querySelector("#total-plus-tip");
 const errorSpan = document.querySelector("label ~ span");
 const errorPeople = document.querySelector("label.label-people ~ span");
+const errorCustom = document.querySelector(".error-custom");
 
 billAmount.addEventListener("change", checkInput, false);
 
@@ -54,7 +55,21 @@ function handleEvent(event) {
 
 customTip.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
-    if (customTip.value >= 1) {
+    if (
+      billAmount.value === "" &&
+      numberPeople.value === "" &&
+      customTip.value === ""
+    ) {
+      addThreeError();
+    } else if (billAmount.value === "" && numberPeople.value === "") {
+      addTwoError();
+    } else if (billAmount.value === "" && billAmount.value !== 0) {
+      addBillError();
+    } else if (numberPeople.value === "" && billAmount.value !== 0) {
+      addPeopleError();
+    } else if (customTip.value === "") {
+      addCustomError();
+    } else if (customTip.value >= 1) {
       let customEvent = customTip.value / 100;
       calculateTip(customEvent);
     } else calculateTip(customTip.value);
@@ -83,6 +98,10 @@ function removeError() {
   errorPeople.classList.add("hidden");
   billAmount.classList.remove("error");
   numberPeople.classList.remove("error");
+  errorCustom.classList.add("hidden");
+  errorCustom.classList.remove("custom-error-msg");
+  customTip.classList.add("input-border");
+  customTip.classList.remove("error");
 }
 
 function addBillError() {
@@ -109,6 +128,27 @@ function addTwoError() {
   customTip.value = "";
 }
 
+function addCustomError() {
+  errorSpan.classList.remove("hidden");
+  customTip.classList.remove("input-border");
+  errorCustom.classList.add("custom-error-msg");
+  customTip.classList.add("error");
+}
+
+function addThreeError() {
+  errorCustom.classList.remove("hidden");
+  errorCustom.classList.add("custom-error-msg");
+  customTip.classList.remove("input-border");
+  customTip.classList.add("error");
+  errorSpan.classList.remove("hidden");
+  errorSpan.classList.add("error-msg");
+  billAmount.classList.add("error");
+  errorPeople.classList.remove("hidden");
+  errorPeople.classList.add("error-msg");
+  numberPeople.classList.add("error");
+  customTip.value = "";
+}
+
 function formReset() {
   formBox.reset();
   billAmount.value = "";
@@ -119,6 +159,10 @@ function formReset() {
   totalWithTip.textContent = "$0.00";
   errorSpan.classList.add("hidden");
   errorPeople.classList.add("hidden");
+  errorCustom.classList.add("hidden");
+  errorCustom.classList.remove("custom-error-msg");
+  customTip.classList.add("input-border");
+  customTip.classList.remove("error");
   numberPeople.classList.remove("error");
   billAmount.classList.remove("error");
 }
