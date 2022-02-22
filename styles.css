@@ -353,7 +353,7 @@ input::-webkit-inner-spin-button {
 
 @media screen and (min-width: 1024px) {
   .img-logo {
-    margin: 45px 0px 10px;
+    margin: 0px 0px 10px;
   }
 
   .use-instructions {
