@@ -41,6 +41,7 @@ function handleEvent(event) {
     } else if (numberPeople.value === "" && billAmount.value !== 0) {
       addPeopleError();
     } else calculateTip(clickedEvent);
+    customTip.value = "";
     // } else if (clickedEvent >= 1) {
     //   let customEvent = clickedEvent / 100;
     //   calculateTip(customEvent);
@@ -87,7 +88,7 @@ function calculateTip(arg1) {
   let personTotal = billAmount.value / numberPeople.value + tipAmount;
   tipTotal.textContent = "$" + Math.abs(personTotal).toFixed(2);
 
-  let totalTip = billAmount.value;
+  let totalTip = personTotal * numberPeople.value;
   totalWithTip.textContent = "$" + Math.abs(totalTip).toFixed(2);
 
   removeError();
